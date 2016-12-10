@@ -1,4 +1,4 @@
-imageset = 'cones'
+imageset = 'motorcycle'
 
 
 H1 = load(fullfile(imageset,'im0_resized_newhcol.mat'))
@@ -9,9 +9,9 @@ I2 = imresize(im2double(imread(fullfile(imageset,'im1.png'))), [224, 224]);
 dim = size(H1.hcol, 1)
 
 H1 = permute(reshape(H1.hcol', [224, 224, dim]), [2,1,3]);
-%H1 = bsxfun(@rdivide, H1, sum(sum(abs(H1), 1), 2));
+H1 = bsxfun(@rdivide, H1, sum(sum(abs(H1), 1)*1000, 2));
 H2 = permute(reshape(H2.hcol', [224, 224, dim]), [2,1,3]);
-%H1 = bsxfun(@rdivide, H1, sum(sum(abs(H2), 1), 2));
+H2 = bsxfun(@rdivide, H2, sum(sum(abs(H2), 1)*1000, 2));
 
 samp = 64;
 slice = (1472-512):1472
@@ -20,8 +20,8 @@ slice = [randperm(64, samp),...
          randperm(256, 0)+128+64,...
          randperm(512, 0)+256+128+64,...
          randperm(512, 0)+512+256+128+64];
-slice = 1:(64+128);
-range = 40;
+
+range = 20;
 
 W = size(H1, 1)
 H = size(H1, 2)
