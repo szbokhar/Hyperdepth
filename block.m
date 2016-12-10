@@ -1,4 +1,4 @@
-imageset = 'playtable'
+imageset = 'recycle'
 I1 = imresize(im2double(imread(fullfile(imageset,'im0.png'))), [224, 224]);
 I2 = imresize(im2double(imread(fullfile(imageset,'im1.png'))), [224, 224]);
 
@@ -6,8 +6,8 @@ W = size(I1, 1)
 H = size(I1, 2)
 Z = zeros(H, W)
 
-win = 9;
-range = 40;
+win = 4;
+range = 20;
 
 H1 = zeros(H, W, (2*win+1)^2*3);
 H2 = zeros(H, W, (2*win+1)^2*3);

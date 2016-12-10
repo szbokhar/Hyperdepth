@@ -17,8 +17,8 @@ for i=1:H
     plot(toplot(:,3), toplot(:,4), 'y-', toplot(:,1), toplot(:,2), 'r-')
     waitforbuttonpress
 end
-
 %{
+
 for y = 1:H
     figure(1); imshow(I1)
     pos = ginput(1)
@@ -42,7 +42,7 @@ for y = 1:H
     figure(3)
     plot(dists, 'r-')
     hold on
-    plot([x x], [0 10], 'g-')
+    plot([x x], [0 max(dists)], 'g-')
     plot([x-range x-range], [0 max(dists)], 'g-')
     plot([x+range x+range], [0 max(dists)], 'g-')
     plot([good good], [0 max(dists)], 'b--')
