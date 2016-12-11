@@ -31,14 +31,10 @@ for y = 1:H
 
 
     dists = pdist2(row1, row2);
+    path = minEnergy(dists, 3);
+
     [~,bests] = sort(dists, 2);
-    tmp = bsxfun(@minus, (1:W)', bests);
-    tmp2 = [];
-    for x=1:W
-        p = tmp(x,abs(tmp(x,:)) < range);
-        tmp2 = [tmp2, p(1)];
-    end
-    Z(y,:) = tmp2;
+    Z(y,:) = (1:W) - path;
 
     y
 end
